@@ -12,8 +12,7 @@ import yaml
 file_dir = os.path.dirname(__file__)
 configs = yaml.safe_load(open(os.path.join(file_dir, 'config.yml')))
 
-
-def main():
+def get_random_recipes():
     # create new connection
     conn = sqlite3.connect(configs['TABLE_SCHEMA'])
     cursor = conn.cursor()
@@ -23,8 +22,13 @@ def main():
     q = open(os.path.join(file_dir, f'sql/{file_name}')).read()
 
     # retrieve results
-    results = cursor.execute(q.format(TABLE_NAME = configs['TABLE_NAME'],
-                                      RETRIEVE_NUM = configs['RETRIEVE_N'])).fetchall()
+    results = cursor.execute(q.format(TABLE_NAME=configs['TABLE_NAME'],
+                                      RETRIEVE_NUM=configs['RETRIEVE_N'])).fetchall()
+    return results
+
+
+def main():
+    results = get_random_recipes()
 
     for i, recipe in enumerate(results):
         print(f"Recipe {i}: {recipe[1]} from <{recipe[0]}>")
