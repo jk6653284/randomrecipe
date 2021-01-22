@@ -8,6 +8,8 @@ from IAmaFB import IAmaFB
 from JustOneCB import JustOneCB
 from KitchenStories import KitchenStories
 from SeriousEats import SeriousEats
+from Ottolenghi import Ottolenghi
+from WoksOfLife import WoksOfLife
 
 # import logger
 sys.path.append("../")
@@ -17,14 +19,15 @@ def run_scraper(scraper):
     recipes = scraper.scrape_all_pages()
     scraper.export_data(recipes)
 
-
 def main():
     run_scraper(BudgetBytes())
     run_scraper(Food52())
-    #run_scraper(IAmaFB())
     run_scraper(JustOneCB())
     run_scraper(KitchenStories())
     run_scraper(SeriousEats())
+    run_scraper(IAmaFB())
+    run_scraper(Ottolenghi())
+    run_scraper(WoksOfLife())
 
 
 if __name__ == '__main__':
