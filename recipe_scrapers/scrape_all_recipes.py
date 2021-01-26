@@ -10,6 +10,8 @@ from KitchenStories import KitchenStories
 from SeriousEats import SeriousEats
 from Ottolenghi import Ottolenghi
 from WoksOfLife import WoksOfLife
+from HalfBakedHarvest import HalfBakedHarvest
+from SweetPillarFood import SweetPillarFood
 
 # import logger
 sys.path.append("../")
@@ -28,6 +30,8 @@ def main():
     run_scraper(IAmaFB())
     run_scraper(Ottolenghi())
     run_scraper(WoksOfLife())
+    run_scraper(HalfBakedHarvest())
+    run_scraper(SweetPillarFood())
 
 
 if __name__ == '__main__':
