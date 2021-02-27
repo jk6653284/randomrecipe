@@ -11,7 +11,7 @@ class SweetPillarFood(RecipeScraper):
     def __init__(self):
         super(SweetPillarFood, self).__init__()
         self.base_url = "https://www.sweetpillarfood.com/recipeindex/page/{pg_num}/"
-        self.max_pg = self.get_max_page_num()
+        self.max_pg = self.get_max_page_num() if self.scrape_type == 'ALL' else int(self.scrape_type)
 
     def get_max_page_num(self):
         soup = self.create_soup(self.base_url.format(pg_num=str(1)))

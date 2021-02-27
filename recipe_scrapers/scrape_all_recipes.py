@@ -13,6 +13,9 @@ from WoksOfLife import WoksOfLife
 from HalfBakedHarvest import HalfBakedHarvest
 from SweetPillarFood import SweetPillarFood
 
+from DelightfulPlate import DelightfulPlate
+from Lacucina import Lacucina
+
 # import logger
 sys.path.append("../")
 from logger import logger
@@ -32,6 +35,8 @@ def main():
     run_scraper(WoksOfLife())
     run_scraper(HalfBakedHarvest())
     run_scraper(SweetPillarFood())
+    run_scraper(DelightfulPlate())
+    run_scraper(Lacucina())
 
 
 if __name__ == '__main__':

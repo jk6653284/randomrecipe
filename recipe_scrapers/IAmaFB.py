@@ -45,7 +45,7 @@ class IAmaFB(RecipeScraper):
         else:
             for pg_num in range(1, int(self.scrape_type) + 1):
                 logger.info(f"Scraping page number: {str(pg_num)}")
-                result = self.scrape_page(str(i))
+                result = self.scrape_page(str(pg_num))
                 recipes.extend(result)
                 time.sleep(3)
         return recipes
