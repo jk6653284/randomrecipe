@@ -12,9 +12,9 @@ from Ottolenghi import Ottolenghi
 from WoksOfLife import WoksOfLife
 from HalfBakedHarvest import HalfBakedHarvest
 from SweetPillarFood import SweetPillarFood
-
 from DelightfulPlate import DelightfulPlate
 from Lacucina import Lacucina
+from JapCook101 import JapCook101
 
 # import logger
 sys.path.append("../")
@@ -37,6 +37,7 @@ def main():
     run_scraper(SweetPillarFood())
     run_scraper(DelightfulPlate())
     run_scraper(Lacucina())
+    run_scraper(JapCook101())
 
 
 if __name__ == '__main__':

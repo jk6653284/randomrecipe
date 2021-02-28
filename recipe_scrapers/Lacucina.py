@@ -29,7 +29,7 @@ class Lacucina(RecipeScraper):
             link = f"https://www.lacucinaitaliana.com{article.find('a')['href']}"
             title = article.find('a')['name']
             image = article.find('img')['data-src']
-            recipes.append(('La Cucina Italiana',link,title,image))
+            recipes.append(('La Cucina Italiana',title,link,image))
 
         return recipes
 
