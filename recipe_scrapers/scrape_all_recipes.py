@@ -15,6 +15,7 @@ from SweetPillarFood import SweetPillarFood
 from DelightfulPlate import DelightfulPlate
 from Lacucina import Lacucina
 from JapCook101 import JapCook101
+from SKLongest import SKLongest
 
 # import logger
 sys.path.append("../")
@@ -22,7 +23,9 @@ from logger import logger
 
 def run_scraper(scraper):
     recipes = scraper.scrape_all_pages()
-    scraper.export_data(recipes)
+    # only insert to table if length is more than 0
+    if len(recipes) > 0:
+        scraper.export_data(recipes)
 
 def main():
     run_scraper(BudgetBytes())
@@ -38,6 +41,7 @@ def main():
     run_scraper(DelightfulPlate())
     run_scraper(Lacucina())
     run_scraper(JapCook101())
+    run_scraper(SKLongest())
 
 
 if __name__ == '__main__':
