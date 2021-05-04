@@ -16,10 +16,7 @@ from DelightfulPlate import DelightfulPlate
 from Lacucina import Lacucina
 from JapCook101 import JapCook101
 from SKLongest import SKLongest
-
-# import logger
-sys.path.append("../")
-from logger import logger
+from SpoonForkBacon import SpoonForkBacon
 
 def run_scraper(scraper):
     recipes = scraper.scrape_all_pages()
@@ -42,6 +39,7 @@ def main():
     run_scraper(Lacucina())
     run_scraper(JapCook101())
     run_scraper(SKLongest())
+    run_scraper(SpoonForkBacon())
 
 
 if __name__ == '__main__':
