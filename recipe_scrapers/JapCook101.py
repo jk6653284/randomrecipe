@@ -1,5 +1,4 @@
 import os
-import re
 import sys
 import time
 
@@ -8,25 +7,27 @@ from _scrape_data import task_timer, RecipeScraper
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from logger import logger
 
+headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'}
 
-class IAmaFB(RecipeScraper):
+class JapCook101(RecipeScraper):
     def __init__(self):
-        super(IAmaFB, self).__init__()
-        self.base_url = "https://iamafoodblog.com/category/recipes/page"
+        super(JapCook101, self).__init__()
+        self.base_url = "https://www.japanesecooking101.com/page/{pg_num}/?s"
 
     @task_timer
     def scrape_page(self, pg_num):
-        soup = self.create_soup(f"{self.base_url}/{str(pg_num)}/")
+        soup = self.create_soup(self.base_url.format(pg_num=str(pg_num)),
+                                headers=headers)
         recipes = []
-        articles = soup.findAll("div", {"class": re.compile(r'archive-tile archive-[\d+]')})
+        articles = soup.find_all('article')
         if len(articles) == 0:
             return False
         else:
             for article in articles:
-                link = article.find('a')['href']
-                title = article.find('h2').text
-                image = article.find('img')['data-lazy-src']
-                recipes.append(('I Am a Food Blog', title, link, image))
+                link = article.find('h2').find('a')['href']
+                title = article.find('h2').find('a').text
+                image = article.find('img')['src'] if article.find('img') else ''
+                recipes.append(('Japanese Cooking 101', title, link, image))
         return recipes
 
     def scrape_all_pages(self):

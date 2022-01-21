@@ -47,15 +47,19 @@ class RecipeScraper:
         self.table_name = configs['TABLE_NAME']
 
     @retry(BaseException,tries=3,delay=0.5)
-    def create_soup(self,url):
+    def create_soup(self,url,headers=None):
         """
         Returns beautiful soup object
         :param url:
         :return:
         """
+        if headers:
+            req = requests.get(url,headers=headers)
+        else:
+            req = requests.get(url)
         try:
             logger.info(f"Soup object created for {url}")
-            soup = BeautifulSoup(requests.get(url).text,'lxml')
+            soup = BeautifulSoup(req.text,'lxml')
             return soup
         except BaseException:
             logger.error(f"Error happened", exc_info = True)
