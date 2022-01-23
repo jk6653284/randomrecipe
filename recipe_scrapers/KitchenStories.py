@@ -26,8 +26,7 @@ class KitchenStories(RecipeScraper):
         for article in soup.find_all('li', {'data-test': 'archive-tile'}):
             title = article.find('a').text
             link = "https://www.kitchenstories.com" + article.find('a')['href']
-            image = article.find('img')['src']
-            recipes.append(('Kitchen Stories', title, link, image))
+            recipes.append(('Kitchen Stories', title, link))
         return recipes
 
     def scrape_all_pages(self):

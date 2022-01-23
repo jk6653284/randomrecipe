@@ -26,8 +26,7 @@ class BudgetBytes(RecipeScraper):
         for article in soup.find_all('article'):
             link = article.find('a')['href']
             title = article.find('h2', {'class': 'post-title'}).text
-            image = article.find('img')['data-src']
-            recipes.append(('Budget Bytes', title, link, image))
+            recipes.append(('Budget Bytes', title, link))
         return recipes
 
     def scrape_all_pages(self):

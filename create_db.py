@@ -21,7 +21,6 @@ def main():
             website_name text NOT NULL
             ,recipe_name text NOT NULL
             ,recipe_url text NOT NULL
-            ,recipe_img_url text NOT NULL
         )
         """
     cursor.execute(create_table_q)

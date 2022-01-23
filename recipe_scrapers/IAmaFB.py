@@ -25,8 +25,7 @@ class IAmaFB(RecipeScraper):
             for article in articles:
                 link = article.find('a')['href']
                 title = article.find('h2').text
-                image = article.find('img')['data-lazy-src']
-                recipes.append(('I Am a Food Blog', title, link, image))
+                recipes.append(('I Am a Food Blog', title, link))
         return recipes
 
     def scrape_all_pages(self):

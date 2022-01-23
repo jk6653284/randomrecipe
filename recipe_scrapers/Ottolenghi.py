@@ -26,8 +26,7 @@ class Ottolenghi(RecipeScraper):
         for recipe in soup.find_all('a', {'class': 'product-item-link'}):
             title = recipe.get('title')
             link = recipe.get('href')
-            image = recipe.find('img')['src']
-            recipes.append(('Ottolenghi', title, link, image))
+            recipes.append(('Ottolenghi', title, link))
         return recipes
 
     def scrape_all_pages(self):

@@ -29,11 +29,7 @@ class Food52(RecipeScraper):
         for article in soup.find_all('div', {'class': 'photo-block'}):
             title = article.find('a')['title']
             link = f"https://food52.com/{article.find('a')['href']}"
-            try:
-                image = article.find('a').find('img')['src']
-            except BaseException:
-                image = article.find('a').find('img')['data-src']
-            recipes.append(('Food52', title, link, image))
+            recipes.append(('Food52', title, link))
         return recipes
 
     def scrape_all_pages(self):

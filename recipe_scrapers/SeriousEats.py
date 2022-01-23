@@ -26,9 +26,8 @@ class SeriousEats(RecipeScraper):
 
         for article in soup.find_all('section', {'class': 'block block-primary block-no-nav'})[0].find_all('article'):
             link = article.find('a')['href']
-            image = article.find('a').find('img')['data-src']
             title = article.find('a', {'class': 'o-link-wrapper'}).text
-            recipes.append(('Serious Eats', title, link, image))
+            recipes.append(('Serious Eats', title, link))
         return recipes
 
     def scrape_all_pages(self):

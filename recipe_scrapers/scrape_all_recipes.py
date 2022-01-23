@@ -11,11 +11,8 @@ from SeriousEats import SeriousEats
 from Ottolenghi import Ottolenghi
 from WoksOfLife import WoksOfLife
 from HalfBakedHarvest import HalfBakedHarvest
-from SweetPillarFood import SweetPillarFood
-from DelightfulPlate import DelightfulPlate
 from Lacucina import Lacucina
 from JapCook101 import JapCook101
-from SKLongest import SKLongest
 from SpoonForkBacon import SpoonForkBacon
 
 def run_scraper(scraper):
@@ -28,17 +25,14 @@ def main():
     run_scraper(BudgetBytes())
     run_scraper(Food52())
     run_scraper(JustOneCB())
-    run_scraper(KitchenStories())
-    run_scraper(SeriousEats())
+    # run_scraper(KitchenStories()) --empty
+    # run_scraper(SeriousEats()) --empty
     run_scraper(IAmaFB())
     run_scraper(Ottolenghi())
     run_scraper(WoksOfLife())
     run_scraper(HalfBakedHarvest())
-    run_scraper(SweetPillarFood())
-    run_scraper(DelightfulPlate())
     run_scraper(Lacucina())
     run_scraper(JapCook101())
-    run_scraper(SKLongest())
     run_scraper(SpoonForkBacon())
 
 

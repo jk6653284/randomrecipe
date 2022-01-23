@@ -28,11 +28,7 @@ class SpoonForkBacon(RecipeScraper):
         for article in soup.find_all('recipe'):
             title = article.find('h2').find('a').text
             link = article.find('h2').find('a')['href']
-            try:
-                image = article.find('a',{'class':'entry-image-link'}).find('img').get('data-lazy-src')
-            except BaseException:
-                image = ""
-            recipes.append(('Spoon Fork Bacon', title, link, image))
+            recipes.append(('Spoon Fork Bacon', title, link))
         return recipes
 
     def scrape_all_pages(self):

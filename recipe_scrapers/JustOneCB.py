@@ -26,8 +26,7 @@ class JustOneCB(RecipeScraper):
         for article in soup.find_all('div', {'class': 'featured-image'}):
             link = article.find('a')['href']
             title = article.find('a')['title']
-            image = article.find('a').find('img')['src']
-            recipes.append(('Just One CookBook', title, link, image))
+            recipes.append(('Just One CookBook', title, link))
         return recipes
 
     def scrape_all_pages(self):

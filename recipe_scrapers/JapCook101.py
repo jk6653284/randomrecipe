@@ -26,8 +26,7 @@ class JapCook101(RecipeScraper):
             for article in articles:
                 link = article.find('h2').find('a')['href']
                 title = article.find('h2').find('a').text
-                image = article.find('img')['src'] if article.find('img') else ''
-                recipes.append(('Japanese Cooking 101', title, link, image))
+                recipes.append(('Japanese Cooking 101', title, link))
         return recipes
 
     def scrape_all_pages(self):

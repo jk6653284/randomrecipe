@@ -27,8 +27,7 @@ class WoksOfLife(RecipeScraper):
         for article in soup.find('main', {'class':'content flexbox'}).find_all('article'):
             title = article.get('aria-label')
             link = article.find('a')['href']
-            image = article.find('a').find('img').get('data-lazy-src')
-            recipes.append(('WoksOfLife', title, link, image))
+            recipes.append(('WoksOfLife', title, link))
         return recipes
 
     def scrape_all_pages(self):
