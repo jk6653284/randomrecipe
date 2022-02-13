@@ -18,12 +18,12 @@ import sqlite3
 import webbrowser
 
 import yaml
-file_dir = os.path.dirname(__file__)
+file_dir = os.path.abspath(os.path.dirname(__file__))
 configs = yaml.safe_load(open(os.path.join(file_dir, 'config.yml')))
 
 def query_db(keyword):
     # create new connection
-    conn = sqlite3.connect(configs['TABLE_SCHEMA'])
+    conn = sqlite3.connect(os.path.join(file_dir,configs['TABLE_SCHEMA']))
     cursor = conn.cursor()
 
     # read sql script based on configs
