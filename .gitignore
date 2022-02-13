@@ -79,8 +79,6 @@ venv.bak/
 bin/
 
 pyvenv.cfg
-
 recipes_db
 randomrecipe/recipes_db
-
 .DS_Store

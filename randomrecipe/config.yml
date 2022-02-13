@@ -1,4 +1,4 @@
-SCRAPE_TYPE: 84 # use either ALL or number of pages to scrape in string (most recent n pages)
+SCRAPE_TYPE: 1 # use either ALL or number of pages to scrape in string (most recent n pages)
 TABLE_SCHEMA: 'recipes_db'
 TABLE_NAME: 'recipes'
 RETRIEVE_N: 5 # for recipe reco
